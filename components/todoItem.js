@@ -1,12 +1,14 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
-
-export default function TodoItem({item, pressHandler}) {
+export default function TodoItem({ item, pressHandler }) {
   return (
-    <TouchableOpacity onPress={() => pressHandler(item.key)}>
-      <Text className="p-4 mt-7 rounded-2xl border ">{item.text}</Text>
-    </TouchableOpacity>
-  )
+    <View className="p-4 mt-7 rounded-2xl border flex flex-row items-center">
+      <TouchableOpacity onPress={() => pressHandler(item.key)}>
+        <MaterialIcons name="delete" size={24} color="black" />
+      </TouchableOpacity>
+      <Text className="ml-3">{item.text}</Text>
+    </View>
+  );
 }
-
